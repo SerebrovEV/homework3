@@ -14,7 +14,7 @@ public class Main {
         if (clientOS == 0) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }
-        if (clientOS ==1) {
+        else  {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
     }
@@ -39,9 +39,7 @@ public class Main {
 
     public static void task3() {
         int year = 2800;
-        if (year % 4 == 0 && year % 100 != 0) {
-            System.out.println(year + " год является високосным");
-        } else if (year % 400 == 0) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " год является високосным");
         } else {
             System.out.println(year + " год не является високосным");
@@ -49,22 +47,29 @@ public class Main {
     }
 
     public static void task4() {
-        int deliveryDistance = 101;
+        int deliveryDistance = 95;
         int deliveryDay = 1;
-        if (deliveryDistance < 20) {
-            System.out.println("Потребуется дней: " + deliveryDay);
-        } else if (deliveryDistance >= 20 && deliveryDistance < 60) {
-            System.out.println("Потребуется дней: " + (deliveryDay + 1));
-        } else if (deliveryDistance >= 60 && deliveryDistance < 100) {
-            System.out.println("Потребуется дней: " + (deliveryDay + 2));
-        } else {
-            System.out.println("Потребуется дней: " + (deliveryDay + 3));
+        if (deliveryDistance > 20) {
+            deliveryDay++;
         }
+        if (deliveryDistance > 60) {
+            deliveryDay++;
+        }
+        if (deliveryDistance > 100) {
+            deliveryDay++;
+        }
+        System.out.println("Потребуется дней на доставку: " + deliveryDay);
+
     }
 
     public static void task5() {
        int monthNumber = 15;
        switch (monthNumber) {
+           case 12:
+           case 1:
+           case 2:
+               System.out.println("Сезон - зима");
+               break;
            case 3:
            case 4:
            case 5:
@@ -80,12 +85,7 @@ public class Main {
            case 11:
                System.out.println("Сезон - осень");
                break;
-           case 12:
-           case 1:
-           case 2:
-               System.out.println("Сезон - зима");
-               break;
-           default:
+               default:
                System.out.println("Такого нет");
        }
     }
